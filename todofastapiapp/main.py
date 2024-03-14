@@ -1,9 +1,13 @@
 # fastapi_neon/main.py
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from todofastapiapp.v1.user._user import userRouter
+from todofastapiapp._database import connection_string, db_engine, create_db_all_tables, startSession, lifespan
 
-app: FastAPI = FastAPI(title="Hello World API", 
+
+app: FastAPI = FastAPI(
+    lifespan=lifespan,
+    title="Hello World API", 
     version="0.0.1",
     servers=[
         {
