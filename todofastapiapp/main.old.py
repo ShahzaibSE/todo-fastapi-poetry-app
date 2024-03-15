@@ -13,7 +13,7 @@ class Todo(SQLModel, table=True):
 
 # only needed for psycopg 3 - replace postgresql
 # with postgresql+psycopg in settings.DATABASE_URL
-connection_string = str(settings.NEON_DATABASE_URL).replace(
+connection_string = str(settings.DATABASE_URL).replace(
     "postgresql", "postgresql+psycopg"
 )
 
